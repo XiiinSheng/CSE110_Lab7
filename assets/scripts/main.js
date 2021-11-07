@@ -69,8 +69,8 @@ function initializeServiceWorker() {
   // register a service worker
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
-      const registerURL = window.location.pathname + '/sw.js';
-      navigator.serviceWorker.register('registerURL').then(function(registration) {
+      const registerURL = window.location.pathname + 'sw.js';
+      navigator.serviceWorker.register(registerURL).then(function(registration) {
         // Registration was successful
         console.log('ServiceWorker registration successful with scope: ', registration.scope);
       }, function(err) {
