@@ -70,13 +70,13 @@ export class Router {
     if(this[page] == undefined){
       return;
     }
-
+    console.log(window.location);
     const hash = (page == 'home') ? '' : ('#'+page);
     
     if(!statePopped && window.location.hash != hash){
       // console.log("Adding new history");
       // console.log(window.location);
-      history.pushState({page}, page, window.location.origin + hash);
+      history.pushState({page}, page, window.pathname + hash);
       // console.log(history);
     }
 
