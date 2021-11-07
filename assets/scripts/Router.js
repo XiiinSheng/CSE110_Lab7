@@ -70,7 +70,7 @@ export class Router {
     if(this[page] == undefined){
       return;
     }
-    console.log(window.location);
+    // console.log(window.location);
     const hash = (page == 'home') ? '' : ('#'+page);
     
     if(!statePopped && window.location.hash != hash){

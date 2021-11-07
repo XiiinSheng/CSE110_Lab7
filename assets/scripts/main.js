@@ -12,6 +12,11 @@ const recipes = [
 ];
 const recipeData = {} // You can access all of the Recipe Data from the JSON files in this variable
 
+var CACHE_NAME = 'my-site-cache-v1';
+var urlsToCache = [
+  '/',
+];
+
 const router = new Router(function () {
   /** 
    * TODO - Part 1 - Step 1
@@ -58,6 +63,22 @@ function initializeServiceWorker() {
    *  TODO - Part 2 Step 1
    *  Initialize the service worker set up in sw.js
    */
+
+  //reference: https://developers.google.com/web/fundamentals/primers/service-workers#cache_and_return_requests
+
+  // register a service worker
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('/sw.js').then(function(registration) {
+        // Registration was successful
+        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+      }, function(err) {
+        // registration failed :(
+        console.log('ServiceWorker registration failed: ', err);
+      });
+    });
+  }
+
 }
 
 /**
@@ -149,6 +170,10 @@ function createRecipeCards() {
         recipeCard.classList.add('hidden');
       }
       document.querySelector('.recipe-cards--wrapper').appendChild(recipeCard);
+
+      // EXPLORE: add urls to cache
+      urlsToCache.push('/#'+page);
+      console.log(urlsToCache);
     }
   
 }
