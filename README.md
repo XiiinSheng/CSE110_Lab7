@@ -1,7 +1,7 @@
 # Lab 7 - Starter Code
 
 Member:  
-Xin Sheng (A15908901)  
+Xin Sheng  
 
 Published site: https://xiiinsheng.github.io/CSE110_Lab7/  
 
